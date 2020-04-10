@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry: ['babel-polyfill', './demo/demo.js'],
+  entry: ['babel-polyfill', './demo/lazy-tree-demo.js'],
   module: {
     rules: [
       {

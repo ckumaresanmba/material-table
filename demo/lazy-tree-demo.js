@@ -109,7 +109,8 @@ class App extends React.Component {
         lazyParent = {(row) => row.isParent}
         options={{
           selection: true,
-          filtering:true
+          filtering:true,
+          sorting:true
         }}
         onTreeExpandChange = {this.onTreeExpandChange}
       />
