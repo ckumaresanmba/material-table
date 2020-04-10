@@ -435,7 +435,7 @@ export default class DataManager {
 
   isDataType(type) {
     let dataType = "normal";
-  
+
     if (this.parentFunc) {
       dataType = "tree";
     }
@@ -721,7 +721,7 @@ export default class DataManager {
 
     // Add all rows initially
     this.data.forEach(rowData => {
-        addRow(rowData);
+      addRow(rowData);
     });
     const markForTreeRemove = (rowData) => {
       let pointer = this.treefiedData;

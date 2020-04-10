@@ -91,8 +91,7 @@ class MTableFilterRow extends React.Component {
           startAdornment: (
             <InputAdornment position="start">
               <Tooltip title={localization.filterTooltip}>
-                <Icon></Icon>
-                {/* <this.props.icons.Filter /> */}
+                <this.props.icons.Filter />
               </Tooltip>
             </InputAdornment>
           )
