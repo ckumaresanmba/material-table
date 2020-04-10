@@ -19,6 +19,7 @@ export default class DataManager {
   treeDataMaxLevel = 0;
   groupedDataLength = 0;
   defaultExpanded = false;
+  lazyParentFunc = null;
   
   data = [];
   columns = [];
@@ -121,6 +122,10 @@ export default class DataManager {
 
   changeParentFunc(parentFunc) {
     this.parentFunc = parentFunc;
+  }
+
+  changeLazyParent(lazyParentFunc) {
+    this.lazyParentFunc = lazyParentFunc;
   }
 
   changeFilterValue(columnId, value) {
@@ -430,7 +435,7 @@ export default class DataManager {
 
   isDataType(type) {
     let dataType = "normal";
-
+  
     if (this.parentFunc) {
       dataType = "tree";
     }
@@ -690,6 +695,7 @@ export default class DataManager {
     }
 
     const addRow = (rowData) => {
+      rowData.isLazyParent = this.lazyParentFunc && this.lazyParentFunc(rowData);
       rowData.tableData.markedForTreeRemove = false;
       let parent = this.parentFunc(rowData, this.data);
       if (parent) {
@@ -715,7 +721,7 @@ export default class DataManager {
 
     // Add all rows initially
     this.data.forEach(rowData => {
-      addRow(rowData);
+        addRow(rowData);
     });
     const markForTreeRemove = (rowData) => {
       let pointer = this.treefiedData;

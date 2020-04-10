@@ -86,6 +86,7 @@ export default class MaterialTable extends React.Component {
     (isInit || this.isRemoteData()) && this.dataManager.changePageSize(props.options.pageSize);
     this.dataManager.changePaging(props.options.paging);
     isInit && this.dataManager.changeParentFunc(props.parentChildData);
+    isInit && this.dataManager.changeLazyParent(props.lazyParent);
     this.dataManager.changeDetailPanelType(props.options.detailPanelType);
   }
 
@@ -636,7 +637,7 @@ export default class MaterialTable extends React.Component {
 
   render() {
     const props = this.getProps();
-
+    
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <props.components.Container style={{ position: 'relative', ...props.style }}>

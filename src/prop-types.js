@@ -7,6 +7,7 @@ const StyledComponent = PropTypes.shape({
 });
 
 export const propTypes = {
+  lazyParent: PropTypes.func,
   actions: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
     icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.string, RefComponent]).isRequired,
     isFreeAction: PropTypes.bool,

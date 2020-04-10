@@ -205,7 +205,7 @@ export default class MTableBodyRow extends React.Component {
     }
 
     if (this.props.isTreeData) {
-      if (this.props.data.tableData.childRows && this.props.data.tableData.childRows.length > 0) {
+      if ((this.props.data.tableData.childRows && this.props.data.tableData.childRows.length > 0) || this.props.data.isLazyParent) {
         renderColumns.splice(0, 0, (
           <TableCell size={size} padding="none" key={"key-tree-data-column"} style={{ width: 48 + 9 * (this.props.treeDataMaxLevel - 2) }}>
             <IconButton
